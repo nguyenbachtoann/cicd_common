@@ -1,5 +1,5 @@
 node {
     stage('Pull Code') {
-        sh('pulling')
+        echo 'pulling'
     }
 }
