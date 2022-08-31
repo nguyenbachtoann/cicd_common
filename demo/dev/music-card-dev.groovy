@@ -4,7 +4,7 @@ node {
     COMMON_BRANCH = 'master'
     REPO = 'https://github.com/nguyenbachtoann/music-card.git'
     CONFIG_REPO = 'https://github.com/nguyenbachtoann/cicd_configuration.git'
-    GIT_CREDENTIAL = 'github-nguyenbachtoann-credential'
+    GIT_CREDENTIAL = 'github-nguyenbachtoann-credential' // create on Jenkins Credential
     CONFIG_DIR = ".config/demo/music-card/dev";
 
     stage('Pull Code') {
@@ -59,6 +59,7 @@ node {
     }
 
     stage('Code Scan') {
+        // After stage Unit Test, the report will be send to SonarQube to analyze
         echo 'scanning'
     }
 }
