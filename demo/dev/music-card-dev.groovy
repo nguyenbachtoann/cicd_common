@@ -36,7 +36,10 @@ node {
     }
 
     stage('Push To Artifactory (Docker Hub)') {
-        // get the credential from Jenkins Credential, extract its USERNAME and PASSWORD
+        /*
+            [Artifactory Alternative]
+            get the credential from Jenkins Credential, extract its USERNAME and PASSWORD
+        */
         withCredentials([usernamePassword(credentialsId: 'docker-hub-credential', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             // inject variable from outside
             withEnv(["IMAGE=${IMAGE}"]) {
@@ -51,7 +54,9 @@ node {
     }
 
     stage('Deploy (Docker Compose)') {
-        /*  run using docker compose, will serve IMAGE we just pushed to hub, running in background (-d)
+        /*
+            [Kubernetes Alternative]
+            run using docker compose, will serve IMAGE we just pushed to hub, running in background (-d)
             if not running in bg, this stage will run 4ever because of docker-compose foreground run display
             IMAGE_NAME: dynamic image param
         */
