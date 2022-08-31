@@ -60,7 +60,7 @@ node {
             if not running in bg, this stage will run 4ever because of docker-compose foreground run display
             IMAGE_NAME: dynamic image param
         */
-        sh "IMAGE_NAME=${IMAGE} docker-compose -f ${CONFIG_DIR}/docker-compose.yaml up --build -d"
+        sh "IMAGE_NAME=${IMAGE} docker-compose -f ${CONFIG_DIR}/docker-compose.yaml up -d"
     }
 
     stage('Code Scan') {
