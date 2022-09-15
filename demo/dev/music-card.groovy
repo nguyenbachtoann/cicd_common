@@ -32,11 +32,13 @@ node {
         /*  set name for image: nguyenbachtoan/musiccard:abcxyz12
             simple format: account/image:git_commit */
         IMAGE = "${IMAGE_BASE_NAME}:${GIT_COMMIT}"
+        withEnv(["IMAGE=${IMAGE}"]) {
             sh '''
                 if [[ "$(docker images -q ${IMAGE} 2> /dev/null)" == "" ]]; then
                     docker build -t ${IMAGE} -f ./Dockerfile . --build-arg NGINX_CONFIG_FILE=/${CONFIG_DIR}/nginx.conf
                 fi
             '''
+        }
     }
 
     stage('Push To Artifactory (Docker Hub)') {
