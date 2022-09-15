@@ -33,7 +33,7 @@ node {
             simple format: account/image:git_commit */
         IMAGE = "${IMAGE_BASE_NAME}:${GIT_COMMIT}"
         sh '''
-            if [[ "$(docker images -q myimage:mytag 2> /dev/null)" == "" ]]; then
+            if [[ "$(docker images -q ${IMAGE} 2> /dev/null)" == "" ]]; then
                 docker build -t ${IMAGE} -f ./Dockerfile . --build-arg NGINX_CONFIG_FILE=/${CONFIG_DIR}/nginx.conf
             fi
         '''
