@@ -1,7 +1,10 @@
 /* groovylint-disable */
+
+// String branch = "${BRANCH}"
+
 node {
     IMAGE_BASE_NAME = 'nguyenbachtoan/creditcard'
-    COMMON_BRANCH = 'master'
+    COMMON_BRANCH = "${BRANCH}"
     REPO = 'https://github.com/nguyenbachtoann/credit-card.git'
     CONFIG_REPO = 'https://github.com/nguyenbachtoann/cicd_configuration.git'
     GIT_CREDENTIAL = 'github-nguyenbachtoann-credential' // create on Jenkins Credential
