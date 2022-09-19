@@ -10,7 +10,7 @@ node {
     GIT_CREDENTIAL = 'github-nguyenbachtoann-credential' // create on Jenkins Credential
     CONFIG_DIR = ".config/demo/credit-card/dev";
 
-    stage('Pull Code') {
+    stage('Kéo mã nguồn') {
         // checkout source code
         git url: REPO, branch: COMMON_BRANCH, credentialsId: GIT_CREDENTIAL
         // create job name
